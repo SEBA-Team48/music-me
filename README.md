@@ -65,5 +65,5 @@ mocha
 
 ...and hope that all tests will pass.
 
-**Alternative/Additionally:** you could also use postman [postman](https://www.getpostman.com/)
+**Alternative/Additionally:** you could also use  postman [postman](https://www.getpostman.com/)
 You need to import the test and environment from `test/rest.json.postman_collection` and `test/localhost.postman_environment`

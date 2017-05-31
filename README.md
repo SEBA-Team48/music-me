@@ -1,6 +1,3 @@
-# musicme-backend
-
-
 # sebamaster-musicme-backend application
 
 sebamaster-movie-frontend application can be found [here](https://github.com/SEBA-Team48/musicme-frontend)

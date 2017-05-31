@@ -16,7 +16,7 @@ Just for the backend application:
 
 go to your project root folder via command line
 ```
-cd path/to/workspace/sebamaster-mucisme-frontend
+cd path/to/workspace/sebamaster-musicme-frontend
 ```
 
 **install node dependencies**

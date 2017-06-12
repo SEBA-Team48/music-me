@@ -1,6 +1,7 @@
 /**
  * Created by peresthahadji on 10.06.17.
  */
+
 var JwtStrategy = require('passport-jwt').Strategy;
 var ExtractJwt = require('passport-jwt').ExtractJwt;
 var User = require('../user/userSchema');

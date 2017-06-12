@@ -4,9 +4,9 @@
 // Load required packages
 var mongoose = require('mongoose');
 
-// Define our movie schema
+// Define our lesson schema
 var Lesson   = new mongoose.Schema({
-    name: String,
+    title: String,
     synopsis: String,
     rating: String,
     year: Number,

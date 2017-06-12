@@ -74,7 +74,7 @@ describe('REST API test', function () {
 
             testlesson = {
                 _id: undefined,
-                name: "test111",
+                title: "test111",
                 year: 2015,
                 synopsis: "test test bla bla",
                 user: testuser._id
@@ -83,7 +83,7 @@ describe('REST API test', function () {
             request(app)
                 .post("/api/lessons")
                 .send({
-                    name: testlesson.name,
+                    title: testlesson.title,
                     year: testlesson.year,
                     synopsis: testlesson.synopsis,
                     user: testlesson.user
@@ -93,7 +93,7 @@ describe('REST API test', function () {
                 .expect(201)
                 .expect(function (res) {
                     var created = res.body;
-                    assert(testlesson.name == created.name);
+                    assert(testlesson.title == created.title);
                     assert(testlesson.year == created.year);
                     assert(testlesson.synopsis == created.synopsis);
                     assert(testlesson.user == created.user);
@@ -139,12 +139,12 @@ describe('REST API test', function () {
 
         });
 
-        it('should update one movie', function (done) {
-            var testmovieCopy = JSON.parse(JSON.stringify(testlesson)); //copy testmovie object w/o reference
-            testmovieCopy.title = "new title";
+        it('should update one lesson', function (done) {
+            var testlessonCopy = JSON.parse(JSON.stringify(testlesson)); //copy testlesson object w/o reference
+            testlessonCopy.title = "new title";
             request(app)
                 .put("/api/movies/" + testlesson._id)
-                .send(testmovieCopy)
+                .send(testlessonCopy)
                 .set("Authorization", "JWT " + testuser.token)
                 .expect('Content-Type', /json/)
                 .expect(200)

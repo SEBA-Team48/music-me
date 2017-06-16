@@ -8,7 +8,7 @@ var mongoose = require('mongoose');
 var Lesson   = new mongoose.Schema({
     title: String,
     synopsis: String,
-    rating: String,
+    mpaa_rating: String,
     year: Number,
     user: {
         type: mongoose.Schema.Types.ObjectId,

@@ -11,7 +11,7 @@ exports.postLesson = function(req, res) {
     }
     lesson.save(function(err, m) {
         if (err) {
-            res.status(400).send(err);
+            res.status(500).send(err);
             return;
         }
         res.status(201).json(m);
@@ -21,7 +21,7 @@ exports.postLesson = function(req, res) {
 exports.getLessons = function(req, res) {
     Lesson.find(function(err, lessons) {
         if (err) {
-            res.status(400).send(err);
+            res.status(500).send(err);
             return;
         }
         res.json(lessons);
@@ -32,7 +32,7 @@ exports.getLesson = function(req, res) {
     // Use the Movie model to find a specific movie
     Lesson.findById(req.params.lesson_id, function(err, lesson) {
         if (err) {
-            res.status(400).send(err)
+            res.status(500).send(err)
             return;
         };
 
@@ -43,7 +43,7 @@ exports.getLesson = function(req, res) {
 exports.putLesson = function(req, res) {
     // Use the Lesson model to find a specific lesson and update it
     Lesson.findByIdAndUpdate(
-        req.params.movie_id,
+        req.params.lesson_id,
         req.body,
         {
             //pass the new object to cb function
@@ -52,7 +52,7 @@ exports.putLesson = function(req, res) {
             runValidators: true
         }, function (err, lesson) {
             if (err) {
-                res.status(400).send(err);
+                res.status(500).send(err);
                 return;
             }
             res.json(lesson);

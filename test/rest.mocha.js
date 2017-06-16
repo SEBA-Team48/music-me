@@ -143,7 +143,7 @@ describe('REST API test', function () {
             var testlessonCopy = JSON.parse(JSON.stringify(testlesson)); //copy testlesson object w/o reference
             testlessonCopy.title = "new title";
             request(app)
-                .put("/api/movies/" + testlesson._id)
+                .put("/api/lessons/" + testlesson._id)
                 .send(testlessonCopy)
                 .set("Authorization", "JWT " + testuser.token)
                 .expect('Content-Type', /json/)
@@ -162,11 +162,11 @@ describe('REST API test', function () {
 
     describe("Deny unauthenticated and unauthorized access", function () {
         var testlesson = {
-            name: "123"
+            title: "123"
         };
 
         before(function () {
-            //create test movie, maybe another test user to check if authorization works properly
+            //create test lesson, maybe another test user to check if authorization works properly
         });
 
         it("should deny unauthenticated lesson creating", function (done) {

@@ -1,5 +1,5 @@
 {
-  "name": "musicme",
+  "name": "musicme-backend",
   "version": "1.0.0",
   "description": "Lessons backend as a service",
   "main": "server.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SEBA-Team48/musicme-backend"
+    "url": "https://github.com/SEBA-Team48/musicme-backend"
   },
   "keywords": [
     "musicme-backend",

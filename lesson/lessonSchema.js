@@ -6,6 +6,7 @@ var mongoose = require('mongoose');
 
 // Define our lesson schema
 var Lesson   = new mongoose.Schema({
+    //delete vvvvv
     title: String,
     synopsis: String,
     mpaa_rating: String,
@@ -13,8 +14,20 @@ var Lesson   = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    }
+    },
+    //^^^^^delete
+    frequency: String,
+    start_time: String,
+    end_time: String,
+    start_day: Date,
+    instrument_list: [listInstrument]
 });
+
+
+var listInstrument = new mongoose.Schema({
+    name: String
+})
+
 
 // Export the Mongoose model
 module.exports = mongoose.model('Lesson', Lesson);

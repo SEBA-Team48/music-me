@@ -20,13 +20,8 @@ var Lesson   = new mongoose.Schema({
     start_time: String,
     end_time: String,
     start_day: Date,
-    instrument_list: [listInstrument]
+    instrument_list: [String]
 });
-
-
-var listInstrument = new mongoose.Schema({
-    name: String
-})
 
 
 // Export the Mongoose model

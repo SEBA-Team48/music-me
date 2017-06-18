@@ -8,10 +8,12 @@ var mongoose = require('mongoose');
 var Lesson   = new mongoose.Schema({
     //delete vvvvv
     title: String,
-    synopsis: String,
-    mpaa_rating: String,
-    year: Number,
-    user: {
+    instrument_list: String,
+    start_day: Date,
+    start_time: String,
+    end_time: String,
+    frequency: String,
+        user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },

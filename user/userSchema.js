@@ -13,7 +13,19 @@ var userSchema = mongoose.Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+	fname:{
+		type: String,
+		required: false /*switch to false later*/
+	},
+	lname:{
+		type: String,
+		required: false /*switch to false later*/
+	},
+	emailadress:{
+		type: String,
+		required: false /*switch to false later*/
+	}
 });
 
 userSchema.pre('save', function(next) {

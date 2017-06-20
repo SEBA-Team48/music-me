@@ -46,11 +46,15 @@ module.exports.signup = function(req, res){
         res.status(400).send('password required');
         return;
     }
-
+	/*add lines above for fname,lname,email*/
+	
     var user = new User();
 
     user.username = req.body.username;
     user.password = req.body.password;
+	user.fname= req.body.fname;
+	user.lname=req.body.lname;
+	user.emailadress=req.body.emailadress;
 
     user.save(function(err) {
         if (err) {

@@ -16,15 +16,15 @@ var userSchema = mongoose.Schema({
     },
 	fname:{
 		type: String,
-		required: false /*switch to false later*/
+		required: false /*switch to true later*/
 	},
 	lname:{
 		type: String,
-		required: false /*switch to false later*/
+		required: false /*switch to true later*/
 	},
 	emailadress:{
 		type: String,
-		required: false /*switch to false later*/
+		required: false /*switch to true later*/
 	}
 });
 

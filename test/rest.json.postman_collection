@@ -97,6 +97,185 @@
 					"response": []
 				},
 				{
+                                					"name": "Create One Teacher",
+                                					"event": [
+                                						{
+                                							"listen": "test",
+                                							"script": {
+                                								"type": "text/javascript",
+                                								"exec": [
+                                									"var jsonData = JSON.parse(responseBody);",
+                                									"",
+                                									"",
+                                									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+                                									"tests[\"Teacher name is as expected\"] = jsonData.name == postman.getGlobalVariable(\"teacherName\");",
+                                									"",
+                                									"//postman cannot save objects and serialization doesnt work with {{}}",
+                                									"postman.setGlobalVariable('teacherId',jsonData._id);",
+                                									"postman.setGlobalVariable('teacherName',jsonData.teacherName);",
+                                									"postman.setGlobalVariable('teacherAge',jsonData.age);",
+                                									"postman.setGlobalVariable('teacherEmail',jsonData.email);",
+                                									"postman.setGlobalVariable('teacherLessons',jsonData.lessons);",
+                                									"postman.setGlobalVariable('teacherRating',jsonData.rating);",
+                                									"postman.setGlobalVariable('teacherUser',jsonData.user);"
+                                								]
+                                							}
+                                						},
+                                						{
+                                                        							"listen": "prerequest",
+                                                        							"script": {
+                                                        								"type": "text/javascript",
+                                                        								"exec": [
+                                                        									"var newd = new Date();",
+                                                        									"postman.setGlobalVariable('teacherName', newd.toString() + \"ajkds\");"
+                                                        								]
+                                                        							}
+                                                        						}
+                                                        					],
+                                                        					"request": {
+                                                        						"url": "{{HOST}}/api/teachers",
+                                                        						"method": "POST",
+                                                        						"header": [
+                                                        							{
+                                                        								"key": "Authorization",
+                                                        								"value": "JWT {{token}}",
+                                                        								"description": ""
+                                                        							},
+                                                        							{
+                                                        								"key": "Content-Type",
+                                                        								"value": "application/json",
+                                                        								"description": ""
+                                                        							}
+                                                        						],
+                                                        						"body": {
+                                                        							"mode": "raw",
+                                                        							"raw": "{\n\"name\": \"{{teacherName}}\",\n\"age\": \"random age\",\n\"email\": test@gmx.de,\n\"user\": \"{{user_id}}\"\n}"
+                                                        						},
+                                                        						"description": ""
+                                                        					},
+                                                        					"response": []
+                                                        				},
+                                {
+                                					"name": "Get one Teacher",
+                                					"event": [
+                                						{
+                                							"listen": "test",
+                                							"script": {
+                                								"type": "text/javascript",
+                                								"exec": [
+                                									"var jsonData = JSON.parse(responseBody);",
+                                									"",
+                                									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+                                									"tests[\"Get the right Teacher\"] = jsonData.name && jsonData.name == postman.getGlobalVariable(\"teacherName\");",
+                                									"",
+                                									""
+                                								]
+                                							}
+                                						}
+                                					],
+                                					"request": {
+                                						"url": "{{HOST}}/api/teachers/{{teacherId}}",
+                                						"method": "GET",
+                                						"header": [],
+                                						"body": {
+                                							"mode": "urlencoded",
+                                							"urlencoded": [
+                                								{
+                                									"key": "username",
+                                									"value": "hansl",
+                                									"type": "text"
+                                								},
+                                								{
+                                									"key": "password",
+                                									"value": "111",
+                                									"type": "text"
+                                								}
+                                							]
+                                						},
+                                						"description": ""
+                                					},
+                                					"response": []
+                                				},
+                                				{
+                                					"name": "Edit one Teacher",
+                                					"event": [
+                                						{
+                                							"listen": "test",
+                                							"script": {
+                                								"type": "text/javascript",
+                                								"exec": [
+                                									"var jsonData = JSON.parse(responseBody);",
+                                									"",
+                                									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+                                									"tests[\"Name has changed as expected\"] = jsonData.name === postman.getGlobalVariable(\"newTeacherName\");",
+                                									"",
+                                									""
+                                								]
+                                							}
+                                						},
+                                						{
+                                							"listen": "prerequest",
+                                							"script": {
+                                								"type": "text/javascript",
+                                								"exec": [
+                                									"var newD = new Date();",
+                                									"postman.setGlobalVariable(\"newTeacherName\", newD.toString() + \"xyz\");"
+                                								]
+                                							}
+                                						}
+                                					],
+                                					"request": {
+                                						"url": "{{HOST}}/api/teachers/{{teacherId}}",
+                                						"method": "PUT",
+                                						"header": [
+                                							{
+                                								"key": "Authorization",
+                                								"value": "JWT {{token}}",
+                                								"description": ""
+                                							},
+                                							{
+                                								"key": "Content-Type",
+                                								"value": "application/json",
+                                								"description": ""
+                                							}
+                                						],
+                                						"body": {
+                                							"mode": "raw",
+                                							"raw": "{\n    \"_id\": \"{{teacherId}}\",\n    \"name\": \"{{newTeacherName}}\",\n    \"age\": \"{{teacherAge}}\",\n    \"email\": \"{{teacherEmail}}\",\n    \"user\": \"{{teacherUser}}\"\n}"
+                                						},
+                                						"description": ""
+                                					},
+                                					"response": []
+                                				},
+                                				{
+                                					"name": "Delete one Teacher",
+                                					"event": [
+                                						{
+                                							"listen": "test",
+                                							"script": {
+                                								"type": "text/javascript",
+                                								"exec": [
+                                									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+                                								]
+                                							}
+                                						}
+                                					],
+                                					"request": {
+                                						"url": "{{HOST}}/api/teachers/{{teacherId}}",
+                                						"method": "DELETE",
+                                						"header": [
+                                							{
+                                								"key": "Authorization",
+                                								"value": "JWT {{token}}",
+                                								"description": ""
+                                							}
+                                						],
+                                						"body": {},
+                                						"description": ""
+                                					},
+                                					"response": []
+                                				},
+				{
 					"name": "Create One Lesson",
 					"event": [
 						{

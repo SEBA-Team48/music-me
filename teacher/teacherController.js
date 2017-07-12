@@ -9,7 +9,7 @@ exports.postTeacher = function(req, res) {
     if (!req.user.equals(teacher.user)) {
         res.sendStatus(401);
     }
-    lesson.save(function(err, m) {
+    teacher.save(function(err, m) {
         if (err) {
             res.status(500).send(err);
             return;
@@ -29,7 +29,7 @@ exports.getTeachers = function(req, res) {
 };
 // Create endpoint /api/teachers/:teacher_id for GET
 exports.getTeacher = function(req, res) {
-    // Use the Teacher model to find a specific teacher
+    // Use the Movie model to find a specific movie
     Teacher.findById(req.params.teacher_id, function(err, teacher) {
         if (err) {
             res.status(500).send(err)
@@ -42,7 +42,7 @@ exports.getTeacher = function(req, res) {
 // Create endpoint /api/teachers/:teacher_id for PUT
 exports.putTeacher = function(req, res) {
     // Use the Teacher model to find a specific teacher and update it
-    Lesson.findByIdAndUpdate(
+    Teacher.findByIdAndUpdate(
         req.params.teacher_id,
         req.body,
         {
@@ -61,7 +61,7 @@ exports.putTeacher = function(req, res) {
 // Create endpoint /api/teachers/:teacher_id for DELETE
 exports.deleteTeacher = function(req, res) {
     // Use the Beer model to find a specific beer and remove it
-    Lesson.findById(req.params.lesson_id, function(err, m) {
+    Teacher.findById(req.params.teacher_id, function(err, m) {
         if (err) {
             res.status(400).send(err);
             return;

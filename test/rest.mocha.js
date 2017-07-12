@@ -170,9 +170,8 @@ describe('REST API test', function () {
                 _id: undefined,
                 teacherName: "test111",
                 age: 20,
-                email: "test@gmx.de",
-                lessons: "test test bla bla",
-                rating: 3,
+                instrument_list: ["test@gmx.de"],
+                location: "test test bla bla",
                 user: testuser._id
             };
             //create the test teacher
@@ -181,9 +180,8 @@ describe('REST API test', function () {
                 .send({
                     teacherName: testteacher.teacherName,
                     age: testteacher.age,
-                    email: testteacher.email,
-                    lessons: testteacher.lessons,
-                    rating: testteacher.rating,
+                    instrument_list: testteacher.instrument_list,
+                    location: testteacher.location,
                     user: testteacher.user
                 })
                 .set("Authorization", "JWT " + testuser.token)
@@ -193,9 +191,8 @@ describe('REST API test', function () {
                     var created = res.body;
                     assert(testteacher.teacherName == created.teacherName);
                     assert(testteacher.age == created.age);
-                    assert(testteacher.email == created.email);
-                    assert(testteacher.lessons == created.lessons);
-                    assert(testteacher.rating == created.rating);
+                    assert(testteacher.instrument_list == created.instrument_list);
+                    assert(testteacher.location == created.location);
                     assert(testteacher.user == created.user);
 
                     testteacher = created;

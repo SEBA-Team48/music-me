@@ -20,7 +20,7 @@ function teacherRoutes(passport) {
         .post(teacherController.postTeacher)
         .get(teacherController.getTeachers);
 
-    router.route('/:lesson_id')
+    router.route('/:teacher_id')
         .get(teacherController.getTeacher)
         .put(teacherController.putTeacher)
         .delete(teacherController.deleteTeacher);

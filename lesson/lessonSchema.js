@@ -6,7 +6,6 @@ var mongoose = require('mongoose');
 
 // Define our lesson schema
 var Lesson   = new mongoose.Schema({
-    //delete vvvvv
     title: String,
     instrument_list: String,
     start_day: Date,
@@ -16,13 +15,7 @@ var Lesson   = new mongoose.Schema({
         user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    },
-    //^^^^^delete
-    frequency: String,
-    start_time: String,
-    end_time: String,
-    start_day: Date,
-    instrument_list: [String]
+    }
 });
 
 

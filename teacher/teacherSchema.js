@@ -8,9 +8,8 @@ var mongoose = require('mongoose');
 var Teacher   = new mongoose.Schema({
     teacherName: String,
     age: String,
-    email: String,
     instrument_list: [String],
-    rating: Number,
+    location: String,
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'

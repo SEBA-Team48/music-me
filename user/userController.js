@@ -46,6 +46,18 @@ module.exports.signup = function(req, res){
         res.status(400).send('password required');
         return;
     }
+    if(!req.body.fname){
+        res.status(400).send('first name required');
+        return;
+    }
+    if(!req.body.lname){
+        res.status(400).send('last name required');
+        return;
+    }
+    if(!req.body.emailadress){
+        res.status(400).send('emailadress required');
+        return;
+    }
 	/*add lines above for fname,lname,email*/
 	
     var user = new User();

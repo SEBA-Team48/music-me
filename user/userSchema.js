@@ -16,16 +16,24 @@ var userSchema = mongoose.Schema({
     },
 	fname:{
 		type: String,
-		required: false /*switch to true later*/
+		required: true /*switch to true later*/
 	},
 	lname:{
 		type: String,
-		required: false /*switch to true later*/
+		required: true /*switch to true later*/
 	},
 	emailadress:{
 		type: String,
-		required: false /*switch to true later*/
-	}
+		required: true /*switch to true later*/
+	},
+	rating:{
+        type: [String],
+        required: false
+    },
+    comment:{
+        type: [String],
+        required: false
+    }
 });
 
 userSchema.pre('save', function(next) {

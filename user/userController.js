@@ -85,6 +85,38 @@ module.exports.unregister = function(req, res) {
     });
 };
 
+// Create endpoint /api/user/:user_id for GET
+exports.getUser = function(req, res) {
+    // Use the lesson model to find a specific lesson
+    User.findById(req.params.user_id, function(err, user) {
+        if (err) {
+            res.status(500).send(err)
+            return;
+        };
+
+        res.json(user);
+    });
+};
+// Create endpoint /api/user/:user_id for PUT
+exports.putUser = function(req, res) {
+    // Use the Lesson model to find a specific lesson and update it
+    User.findByIdAndUpdate(
+        req.params.user_id,
+        req.body,
+        {
+            //pass the new object to cb function
+            new: true,
+            //run validations
+            runValidators: true
+        }, function (err, user) {
+            if (err) {
+                res.status(500).send(err);
+                return;
+            }
+            res.json(user);
+        });
+};
+
 function createToken(user) {
     var tokenPayload = {
         user: {

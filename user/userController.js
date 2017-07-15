@@ -55,6 +55,7 @@ module.exports.signup = function(req, res){
 	user.fname= req.body.fname;
 	user.lname=req.body.lname;
 	user.emailadress=req.body.emailadress;
+    user.is_teacher=req.body.is_teacher;
 
     user.save(function(err) {
         if (err) {

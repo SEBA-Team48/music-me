@@ -25,7 +25,11 @@ var userSchema = mongoose.Schema({
 	emailadress:{
 		type: String,
 		required: false /*switch to true later*/
-	}
+	},
+    is_teacher:{
+	    type: Boolean,
+        required: false
+    }
 });
 
 userSchema.pre('save', function(next) {

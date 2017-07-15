@@ -29,7 +29,7 @@ exports.getTeachers = function(req, res) {
 };
 // Create endpoint /api/teachers/:teacher_id for GET
 exports.getTeacher = function(req, res) {
-    // Use the Movie model to find a specific movie
+    // Use the Lesson model to find a specific movie
     Teacher.findById(req.params.teacher_id, function(err, teacher) {
         if (err) {
             res.status(500).send(err)

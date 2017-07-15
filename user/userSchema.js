@@ -31,7 +31,7 @@ var userSchema = mongoose.Schema({
 		required: true /*switch to true later*/
 	},
 	rating:{
-        type: [String],
+        type: [Number],
         required: false
     },
     comment:{

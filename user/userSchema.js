@@ -16,18 +16,26 @@ var userSchema = mongoose.Schema({
     },
 	fname:{
 		type: String,
-		required: false /*switch to true later*/
+		required: true /*switch to true later*/
 	},
 	lname:{
 		type: String,
-		required: false /*switch to true later*/
+		required: true /*switch to true later*/
 	},
 	emailadress:{
 		type: String,
-		required: false /*switch to true later*/
+		required: true /*switch to true later*/
 	},
     is_teacher:{
 	    type: Boolean,
+		required: true /*switch to true later*/
+	},
+	rating:{
+        type: [String],
+        required: false
+    },
+    comment:{
+        type: [String],
         required: false
     }
 });

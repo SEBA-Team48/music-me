@@ -1,6 +1,4 @@
-/**
- * Created by peresthahadji on 10.06.17.
- */
+
 var Config = require('../config/config.js');
 var User = require('./userSchema');
 var jwt = require('jwt-simple');
@@ -44,6 +42,18 @@ module.exports.signup = function(req, res){
     }
     if(!req.body.password){
         res.status(400).send('password required');
+        return;
+    }
+    if(!req.body.fname){
+        res.status(400).send('first name required');
+        return;
+    }
+    if(!req.body.lname){
+        res.status(400).send('last name required');
+        return;
+    }
+    if(!req.body.emailadress){
+        res.status(400).send('emailadress required');
         return;
     }
 	/*add lines above for fname,lname,email*/

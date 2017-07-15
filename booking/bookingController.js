@@ -39,7 +39,7 @@ exports.getBooking = function(req, res) {
 };
 // Create endpoint /api/bookings/:booking_id for PUT
 exports.putBooking = function(req, res) {
-    // Use the Booking model to find a specific booking and update it
+    // Use the Booking model to find a specific bookings and update it
     Booking.findByIdAndUpdate(
         req.params.booking_id,
         req.body,

@@ -1,6 +1,4 @@
-/**
- * Created by peresthahadji on 10.06.17.
- */
+
 var Config = require('../config/config.js');
 var User = require('./userSchema');
 var jwt = require('jwt-simple');

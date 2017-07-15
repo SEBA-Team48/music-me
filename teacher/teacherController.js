@@ -1,6 +1,4 @@
-/**
- * Created by peresthahadji on 10.06.17.
- */
+
 // importing Teacher model
 var Teacher = require('./teacherSchema');
 exports.postTeacher = function(req, res) {

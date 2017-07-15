@@ -1,6 +1,4 @@
-/**
- * Created by peresthahadji on 10.06.17.
- */
+
 // importing Lesson model
 var Lesson = require('./lessonSchema');
 exports.postLesson = function(req, res) {

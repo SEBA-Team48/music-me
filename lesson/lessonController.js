@@ -24,10 +24,15 @@ exports.getLessons = function(req, res) {
         }
         res.json(lessons);
     });
+    /*Lesson.findOne({ 'title': 'Guitar' }, 'name start_time', function (err, lesson) {
+        if (err) return handleError(err);
+        console.log('%s %s is a %s.', lesson.title, lesson.start_time) // Space Ghost is a talk show host.
+    })*/
+
 };
 // Create endpoint /api/lessons/:lesson_id for GET
 exports.getLesson = function(req, res) {
-    // Use the Movie model to find a specific movie
+    // Use the lesson model to find a specific lesson
     Lesson.findById(req.params.lesson_id, function(err, lesson) {
         if (err) {
             res.status(500).send(err)

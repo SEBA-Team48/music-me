@@ -26,6 +26,10 @@ var userSchema = mongoose.Schema({
 		type: String,
 		required: true /*switch to true later*/
 	},
+    is_teacher:{
+	    type: Boolean,
+		required: true /*switch to true later*/
+	},
 	rating:{
         type: [String],
         required: false

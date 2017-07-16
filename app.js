@@ -34,12 +34,10 @@ jwtConfig(passport);
  */
 var userRoutes = require("./user/userRoutes");
 var lessonRoutes = require("./lesson/lessonRoutes");
-var teacherRoutes = require("./teacher/teacherRoutes");
 var messageRoutes= require("./message/messageRoutes");
 var bookingRoutes = require("./booking/bookingRoutes")
 app.use('/api/messages', messageRoutes(passport));
 app.use('/api/lessons', lessonRoutes(passport));
-app.use('/api/teachers', teacherRoutes(passport));
 app.use('/api/user', userRoutes(passport));
 app.use('/api/booking', bookingRoutes(passport));
 module.exports = app;

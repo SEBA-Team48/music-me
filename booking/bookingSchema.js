@@ -6,7 +6,6 @@ var mongoose = require('mongoose');
 
 // Define our teacher schema
 var Booking   = new mongoose.Schema({
-    status: boolean,
     userStudent: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'

@@ -17,13 +17,13 @@ function bookingRoutes(passport) {
     router.use(mw.unless({method: ['GET', 'OPTIONS']}));
 
     router.route('/')
-        .post(bookingController.postTeacher)
-        .get(bookingController.getTeachers);
+        .post(bookingController.postBooking)
+        .get(bookingController.getBookings);
 
     router.route('/:booking_id')
-        .get(bookingController.getTeacher)
-        .put(bookingController.putTeacher)
-        .delete(bookingController.deleteTeacher);
+        .get(bookingController.getBooking)
+        .put(bookingController.putBooking)
+        .delete(bookingController.deleteBooking);
 
     return router;
 }

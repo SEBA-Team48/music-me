@@ -12,7 +12,12 @@ var Lesson   = new mongoose.Schema({
     start_time: String,
     end_time: String,
     frequency: String,
-        user: {
+    is_booked: Boolean,
+    userStudent: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    userTeacher: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }

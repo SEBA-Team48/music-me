@@ -24,7 +24,8 @@ var userSchema = mongoose.Schema({
 	},
 	emailadress:{
 		type: String,
-		required: true /*switch to true later*/
+		required: true,
+        unique: true
 	},
     is_teacher:{
 	    type: Boolean,

@@ -121,7 +121,8 @@ function createToken(user) {
     var tokenPayload = {
         user: {
             _id: user._id,
-            username: user.username
+            username: user.username,
+            is_teacher: user.is_teacher
         }
 
     };

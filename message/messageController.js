@@ -4,7 +4,7 @@ var Message = require('./messageSchema');
 exports.postMessage = function(req, res) {
     var message = new Message(req.body);
     //do not allow user to fake identity. The user who posted the message must be the same user that is logged in
-    if (!req.user.equals(message.user)) {
+    if (!req.user.equals(message.sender)) {
         res.sendStatus(401);
     }
     message.save(function(err, m) {

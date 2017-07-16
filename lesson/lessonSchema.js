@@ -13,13 +13,13 @@ var Lesson   = new mongoose.Schema({
     end_time: String,
     frequency: String,
     is_booked: Boolean,
-    userStudent: {
+    user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
-    userTeacher: {
+    user_student: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'User_Student'
     }
 });
 

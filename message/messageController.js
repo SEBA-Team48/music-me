@@ -38,7 +38,7 @@ exports.getMessage = function(req, res) {
     });
 };
 
-/*
+
 // Create endpoint /api/messages/:message_id for PUT
 exports.putMessage = function(req, res) {
     // Use the Message model to find a specific message and update it
@@ -58,7 +58,7 @@ exports.putMessage = function(req, res) {
             res.json(message);
         });
 };
-*/
+
 
 // Create endpoint /api/messages/:message_id for DELETE
 exports.deleteMessage = function(req, res) {

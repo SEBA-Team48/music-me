@@ -20,7 +20,7 @@ function messageRoutes(passport) {
 
     router.route('/:message_id')
         .get(messageController.getMessage)
-        //.put(messageController.putMessage)
+        .put(messageController.putMessage)
         .delete(messageController.deleteMessage);
 
     return router;

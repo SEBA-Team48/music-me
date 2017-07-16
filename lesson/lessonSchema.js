@@ -7,7 +7,7 @@ var mongoose = require('mongoose');
 // Define our lesson schema
 var Lesson   = new mongoose.Schema({
     title: String,
-    instrument_list: String,
+    instrument_list: [String],
     start_day: Date,
     start_time: String,
     end_time: String,

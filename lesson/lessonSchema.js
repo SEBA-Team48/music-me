@@ -19,7 +19,7 @@ var Lesson   = new mongoose.Schema({
     },
     user_student: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User_Student'
+        ref: 'User'
     }
 });
 

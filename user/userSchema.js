@@ -52,7 +52,7 @@ userSchema.pre('save', function(next) {
         // hash the password using our new salt
         bcrypt.hash(user.password, salt, null, function (err, hash) {
             if (err) return next(err);
-
+                user.password = hash;
             // override the cleartext password with the hashed ouser.password = hash;
             next();
         });
